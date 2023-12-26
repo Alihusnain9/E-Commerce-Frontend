@@ -2,26 +2,114 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+
+
+* {
+  padding: 0;
+  margin: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.hover:hover {
+  background-color: #d25912;
+  /* background-color: #f57224; */
+}
+
+.overflow-scroll::-webkit-scrollbar{
+  display: none;
+}
+
+.color {
+  color: #f85606;
+}
+
+.slider {
+  display: flex;
+  overflow: hidden;
+  max-width: 100%;
+  position: relative;
+}
+img:not(.not) {
+  width: 100%;
+  transition: transform 0.5s ease;
+}
+
+
+@media screen and (max-width: 470px) {
+  .column {
+    flex-direction: column !important;
+  }
+  
+  .direction{
+    display: flex;
+    flex-direction: row-reverse;
+  }
+
+  .dir{
+    flex-direction: column;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@media screen and (max-width: 530px) {
+  .footer {
+    flex-direction: column-reverse !important;
+  }
+}
+
+@media screen and (max-width: 567px) {
+  .form {
+    display: none !important;
+  }
+
+  .form2{
+    display: block !important;
+    
+  }
+}
+
+.active {
+  transform: translateX(0);
+}
+
+/* Add additional styles as per your design requirements */
+
+.aerow:hover {
+  border: 1px solid gray !important;
+}
+
+
+@media screen and (max-width: 885px) {
+  .logo {
+    font-size: 1.25rem /* 20px */ !important;
+    line-height: 1.75rem !important;
+  }
+
+  .contner {
+    padding-left: 0.25rem !important;
+    padding-right: 0.25rem !important;
+  }
+
+  .regLink {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .sinLink {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .lang {
+    display: none !important;
+  }
+
+  .cart {
+    width: 1.8rem !important;
+    height: 1.8rem !important;
+  }
+
+  .count {
+    right: 7px !important;
+    top: -14px !important;
+    font-size: small !important;
+  }
 }
