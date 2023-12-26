@@ -10,7 +10,7 @@ const images = [
   "https://th.bing.com/th/id/R.22f453e2a9a889e52090cf882f682c7f?rik=KXQ4DUyqTcwFrg&pid=ImgRaw&r=0",
   "https://english.onlinekhabar.com/wp-content/uploads/2021/05/online-shopping.jpg",
   "https://th.bing.com/th/id/OIP.Im7irbtz7Q_2AJXFCe7DAgHaE7?w=650&h=433&rs=1&pid=ImgDetMain",
-];
+]
 
 const ImageSlider = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -31,7 +31,7 @@ const ImageSlider = () => {
               key={index}
               src={image}
               alt={`Slide ${index}`}
-              className={` w-[100%] md:h-[60vh] sm:h-[50vh] h-[40vh] object-cover`}
+              className={` w-[100%] md:h-[60vh] sm:h-[50vh] max-h-[20rem] h-[35vh] object-cover`}
               height={900}
               width={900}
             />

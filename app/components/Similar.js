@@ -60,7 +60,7 @@ const Similar = ({ category }) => {
     autoplaySpeed: 4000,
     slidesToScroll: 2,
     infinite: true,
-    speed: 1000,
+    speed: 1500,
     slidesToShow: 5,
     initialSlide: 0,
     nextArrow: <CustomPrevArrow/>,
@@ -75,7 +75,7 @@ const Similar = ({ category }) => {
           swipeToSlide: true,
           infinite: true,
           initialSlide: 3,
-          speed: 1000,
+          speed: 1500,
         },
       },
       {
@@ -86,7 +86,7 @@ const Similar = ({ category }) => {
           slidesToShow: 4,
           swipeToSlide: true,
           initialSlide: 0,
-          speed: 1000,
+          speed: 1500,
         },
       },
       {
@@ -97,7 +97,7 @@ const Similar = ({ category }) => {
           slidesToShow: 3,
           swipeToSlide: true,
           initialSlide: 0,
-          speed: 1000,
+          speed: 1500,
         },
       },
       {
@@ -109,7 +109,7 @@ const Similar = ({ category }) => {
           swipeToSlide: true,
           initialSlide: 0,
           scrollX: true,
-          speed: 1000,
+          speed: 1500,
         },
       },
     ],
@@ -147,7 +147,7 @@ const Similar = ({ category }) => {
                         />
                       </div>
                     </div>
-                    <div className="mt-4 border-t">
+                    <div className="mt-4 border-t pt-1">
                       <h1 className="text-black md:text-sm text-xs sm:title-font mb-1">
                         {(item?.attributes?.PName).substring(0, 32)}
                       </h1>

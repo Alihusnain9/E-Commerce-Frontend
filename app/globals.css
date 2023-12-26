@@ -60,6 +60,10 @@ img:not(.not) {
     display: none !important;
   }
 
+.slider{
+  margin-top: 2rem;
+}  
+
   .form2{
     display: block !important;
     
