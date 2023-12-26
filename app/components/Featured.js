@@ -1,0 +1,139 @@
+import React, { useEffect, useState } from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Link from "next/link";
+const Mobile = () => {
+  const [rsponse, setRsponse] = useState();
+  useEffect(() => {
+    const getData = async () => {
+      const data = await fetch(
+        "https://e-commerece-back.onrender.com/api/products?populate=*",
+        {
+          cache: "no-store",
+          headers: {
+            Authorization:
+              "Bearer 5ed3ecc4cf9facb159481b5efaeee569954a39f4df7821e5be0243e371fe118d6abad4d62cc8a049549659ab101764d77a37e74fa0a3926e7123501a212e5caba86b2836eeac904e3321137c2bc44a9b71315bac3eb517357f90c94a5e6754eb360cdaff73f50efb06d64fcd6a110411f7bfeccc08ba6ff812f2018306c1874f",
+          },
+        }
+      );
+      const response = await data.json();
+      setRsponse(response);
+    };
+    getData();
+  }, []);
+
+  function Arrow(props) {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={`slick-arrow slick-next bg-white text-black`}
+        style={{
+          ...style,
+          display: "block",
+          backgroundColor: "",
+          color: "black",
+          fill: "black",
+        }}
+        onClick={onClick}
+      />
+    );
+  }
+
+  var settings = {
+    autoplay: true,
+    autoplaySpeed: 5000,
+    infinite: true,
+    speed: 1000,
+    slidesToShow: 5,
+    slidesToScroll: 2,
+    initialSlide: 6,
+    nextArrow: <Arrow />,
+    prevArrow: <Arrow />,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          autoplay: true,
+          autoplaySpeed: 5000,
+          slidesToShow: 5,
+          swipeToSlide: true,
+          infinite: true,
+          initialSlide: 6,
+        },
+      },
+      {
+        breakpoint: 800,
+        settings: {
+          autoplay: true,
+          autoplaySpeed: 5000,
+          slidesToShow: 4,
+          swipeToSlide: true,
+          initialSlide: 4,
+        },
+      },
+      {
+        breakpoint: 580,
+        settings: {
+          autoplay: true,
+          autoplaySpeed: 5000,
+          slidesToShow: 3,
+          swipeToSlide: true,
+          initialSlide: 0,
+        },
+      },
+      {
+        breakpoint: 450,
+        settings: {
+          autoplay: true,
+          autoplaySpeed: 5000,
+          slidesToShow: 2,
+          swipeToSlide: true,
+          initialSlide: 5,
+        },
+      },
+    ],
+  };
+
+  return (
+    <div className="">
+      <div className="bg-white shadow p-1 mx-auto max-w-6xl">
+        <h1 className="text-black mb-2 text-xl">Latest Products</h1>
+        <Slider
+          {...settings}
+          className=" mx-auto flex items-center justify-center"
+        >
+          {rsponse?.data &&
+            rsponse?.data.map((item) => {
+              return (
+                <Link
+                  key={Math.random()}
+                  href={`/users/${item?.attributes?.UName}`}
+                  className="m:min-w-[250px] min-w-[150px] bg-white px-2 cursor-pointer hover:shadow-2xl ease-in-out 
+                md:h-[250px
+                  duration-300 flex items-center justify-center flex-col"
+                >
+                  <div className="md:h-[145px] h-[110px] flex items-center justify-center">
+                    <div className="w-[90px] m-w-[100] md:w-[120px] sm:\{120px} md:[150px] flex items-center justify-center">
+                      <img
+                        alt="ProductImage"
+                        className="obect-cover object-center my-auto"
+                        src={
+                          item?.attributes?.PImage?.data &&
+                          // "http://localhost:1337" +
+                          item.attributes?.PImage?.data[0].attributes.formats
+                            .thumbnail.url
+                        }
+                      />
+                    </div>
+                  </div>
+                </Link>
+              );
+            })}
+        </Slider>
+      </div>
+    </div>
+  );
+};
+
+export default Mobile;
