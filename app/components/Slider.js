@@ -31,7 +31,7 @@ const ImageSlider = () => {
               key={index}
               src={image}
               alt={`Slide ${index}`}
-              className={` w-[100%] md:h-[60vh] sm:h-[50vh] max-h-[20rem] h-[35vh] object-cover`}
+              className={` w-[100%] md:h-[60vh] sm:h-[50vh] max-h-[30rem] h-[35vh] object-cover`}
               height={900}
               width={900}
             />
